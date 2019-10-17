@@ -1,0 +1,237 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "mars dialog",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "IntroWithAge",
+          "slots": [
+            {
+              "name": "PersonName",
+              "type": "AMAZON.Person"
+            },
+            {
+              "name": "Age",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "I am {PersonName}",
+            "My name is {PersonName} and my age is {Age}",
+            "Myself {PersonName}"
+          ]
+        },
+        {
+          "name": "AddUserPreference",
+          "slots": [
+            {
+              "name": "CountryName",
+              "type": "AMAZON.Country",
+              "samples": [
+                "i would love to visit {CountryName}",
+                "i would like to visit {CountryName}",
+                "I want to visit {CountryName}",
+                "{CountryName}"
+              ]
+            },
+            {
+              "name": "PersonName",
+              "type": "AMAZON.Person",
+              "samples": [
+                "{PersonName}",
+                "My name is {PersonName}",
+                "I am {PersonName}"
+              ]
+            },
+            {
+              "name": "Count",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "with {Count} person",
+                "{Count}",
+                "with {Count} friends",
+                "with {Count} people",
+                "with {Count} members"
+              ]
+            }
+          ],
+          "samples": [
+            "I want to visit {CountryName}",
+            "My name is {PersonName}",
+            "with {Count} friends",
+            "My name is {PersonName} and i want to visit {CountryName} with my {Count} friends"
+          ]
+        },
+        {
+          "name": "FoodOrderIntent",
+          "slots": [
+            {
+              "name": "OrderQuantity",
+              "type": "AMAZON.NUMBER"
+            },
+            {
+              "name": "OrderItem",
+              "type": "AMAZON.Food"
+            }
+          ],
+          "samples": [
+            "{OrderQuantity} {OrderItem}",
+            "i would like to order {OrderQuantity} {OrderItem}"
+          ]
+        },
+        {
+          "name": "CurrentLocation",
+          "slots": [],
+          "samples": [
+            "what location is this",
+            "what place is this",
+            "what is my location",
+            "say my location",
+            "Where am i"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "AddUserPreference",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "CountryName",
+              "type": "AMAZON.Country",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1123807856773.1096469783390"
+              }
+            },
+            {
+              "name": "PersonName",
+              "type": "AMAZON.Person",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1123807856773.155932896727"
+              }
+            },
+            {
+              "name": "Count",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.945557527243.1147863633527",
+                "elicitation": "Elicit.Slot.1123807856773.1069360289466"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FoodOrderIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.178507408040"
+          },
+          "slots": [
+            {
+              "name": "OrderQuantity",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "OrderItem",
+              "type": "AMAZON.Food",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1123807856773.155932896727",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Tell me your name?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1123807856773.1069360289466",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "With how many person"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1123807856773.1096469783390",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "which country you want to visit"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.945557527243.1147863633527",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "You are going with {Count} person right?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.178507408040",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Are you sure you want to buy {OrderQuantity} {OrderItem}"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "12"
+}

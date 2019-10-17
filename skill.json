@@ -1,0 +1,43 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "ask-custom-mars_dialog_directive-default",
+          "sourceDir": "lambda/us-east-1_ask-custom-mars_dialog_directive-default"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::devices:all:address:full:read"
+      },
+      {
+        "name": "alexa::devices:all:geolocation:read"
+      }
+    ],
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "mars_dialog_directive",
+          "summary": "Sample Short Description",
+          "description": "Sample Full Description",
+          "examplePhrases": [
+            "Alexa open hello world",
+            "hello",
+            "help"
+          ]
+        },
+        "en-IN": {
+          "name": "mars_dialog_directive"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    }
+  }
+}
