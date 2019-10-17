@@ -1,0 +1,2 @@
+# Alexa_dialog_test
+DelegateDirective,ElicitSlotDirective,ConfirmSlotDirective,ConfirmIntentDirective(),Dialog.ElicitSlot
